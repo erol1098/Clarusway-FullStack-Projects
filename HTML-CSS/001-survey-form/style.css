@@ -21,6 +21,9 @@ body {
 #title {
   font-family: "Black Han Sans", sans-serif;
 }
+span {
+  color: red;
+}
 #description {
   font-size: 1.2rem;
 }
