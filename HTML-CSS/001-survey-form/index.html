@@ -11,6 +11,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./icons8-netflix-desktop-app-16.png"
+      type="image/x-icon"
+    />
     <title>NetFlix Survey Form</title>
   </head>
   <body>
@@ -25,8 +30,8 @@
           </p>
         </div>
       </header>
-      <section id="form-container">
-        <form action="" method="get">
+      <section class="form-container">
+        <form action="./result.html" method="get">
           <div class="box">
             <label for="name">Name</label>
             <input
@@ -50,51 +55,61 @@
             />
           </div>
           <div class="box">
-            <label for="content">Content type</label>
+            <label for="content">Content Type</label>
             <select name="content" id="content">
-              <option value="Series">Series</option>
-              <option value="Film">Film</option>
-              <option value="Anime">Anime</option>
+              <option value="series" selected>Series</option>
+              <option value="movie">Movie</option>
+              <option value="anime">Anime</option>
             </select>
           </div>
           <div class="box">
-            <label for="">Movie Type</label>
-            <div class="labels">
-              <input type="checkbox" name="type-1" id="comedy" value="Comedy" />
+            <label for="movie-type">Movie Type</label>
+            <div class="labels movie-type">
+              <input
+                type="checkbox"
+                name="movieType"
+                id="comedy"
+                value="comedy"
+              />
               <label for="comedy">Comedy</label>
             </div>
             <div class="labels">
-              <input type="checkbox" name="type-2" id="action" value="Action" />
+              <input
+                type="checkbox"
+                name="movieType"
+                id="action"
+                value="action"
+              />
               <label for="action">Action</label>
             </div>
             <div class="labels">
               <input
                 type="checkbox"
-                name="type-3"
+                name="movieType"
                 id="romance"
-                value="Romance"
+                value="romance"
               />
               <label for="romance">Romance</label>
             </div>
           </div>
           <div class="box">
-            <label>Gender</label>
-            <div class="labels">
+            <label for="gender">Gender</label>
+            <div class="labels gender">
               <input
                 type="radio"
                 name="gender"
                 id="male"
-                value="Male"
+                value="male"
                 checked
               />
               <label for="male">Male</label>
             </div>
             <div class="labels">
-              <input type="radio" name="gender" id="female" value="Female" />
+              <input type="radio" name="gender" id="female" value="female" />
               <label for="female">Female</label>
             </div>
             <div class="labels">
-              <input type="radio" name="gender" id="other" value="Other" />
+              <input type="radio" name="gender" id="other" value="other" />
               <label for="other">Other</label>
             </div>
           </div>
