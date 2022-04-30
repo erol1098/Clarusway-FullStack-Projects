@@ -27,6 +27,9 @@
 .navbar-links:visited {
   color: #000;
 }
+.navbar-links:hover {
+  text-decoration: underline;
+}
 .sign-in {
   color: #fff;
   background-color: rgb(26, 115, 232);
@@ -98,6 +101,9 @@
 /* for Dark Mode */
 .dark {
   background-color: #000;
+  color: white;
+}
+.dark:link {
   color: white;
 }
 .dark:visited {
