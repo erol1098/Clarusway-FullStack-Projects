@@ -8,6 +8,7 @@
 }
 .nav-bar {
   margin: 0.5rem;
+  margin-top: 0px;
   padding: 5px;
   display: flex;
   align-items: center;
@@ -30,6 +31,18 @@
 .navbar-links:hover {
   text-decoration: underline;
 }
+.app-icon-menu {
+  margin-top: 0.5rem;
+  width: 2.7em;
+  height: 2.7rem;
+  padding: 0.4rem;
+}
+.app-icon-menu:hover {
+  background-color: #efefef;
+
+  border-radius: 15rem;
+}
+
 .sign-in {
   color: #fff;
   background-color: rgb(26, 115, 232);
