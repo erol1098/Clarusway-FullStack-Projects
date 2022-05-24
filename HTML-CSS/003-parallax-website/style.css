@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.main__div {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main__1 {
+  background-image: url("./img/bg.jpg");
+}
+.main__2 {
+  background-image: url("./img/bg2.jpg");
+}
+.main__3 {
+  background-image: url("./img/bg3.jpg");
+}
+.main__4 {
+  background-image: url("./img/bg4.jpg");
+}
+.main__5 {
+  background-image: url("./img/bg.jpg");
+}
+
+.main__logo-container {
+  width: fit-content;
+  background-color: #f1f1f1;
+  border-radius: 3.5rem 0 3.5rem 0;
+  border-top: 0.5rem solid #220346;
+  border-left: 0.5rem solid #220346;
+  border-bottom: 0.5rem solid purple;
+  border-right: 0.5rem solid purple;
+}
+.main__logo-container--span {
+  display: inline-block;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  padding: 2rem;
+  margin: 1rem;
+  color: white;
+  background-color: black;
+  border-radius: 2rem 0 2rem 0;
+}
+.main__motto-container {
+  width: fit-content;
+
+  border-radius: 3.5rem 0 3.5rem 0;
+  border-top: 0.5rem solid #220346;
+  border-left: 0.5rem solid #220346;
+  border-bottom: 0.5rem solid purple;
+  border-right: 0.5rem solid purple;
+}
+.main__motto-container--span {
+  display: inline-block;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  padding: 1rem;
+  margin: 0.5rem;
+  color: white;
+  background-color: black;
+  border-radius: 2rem 0 2rem 0;
+}
+
+.main__text {
+  background-color: #f1f1f1;
+  padding: 4rem 5.5rem 2rem 5.5rem;
+  line-height: 1.7rem;
+  opacity: 0.7;
+}
+.main__text h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.main__text p {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.main__2 img {
+  width: 30rem;
+}
