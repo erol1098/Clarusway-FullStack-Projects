@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Checkout Form</title>
+  </head>
+  <body>
+    <div class="header"><h1>Checkout</h1></div>
+    <div class="container">
+      <div class="left">
+        <div class="contact__form">
+          <form action="">
+            <h2>Contact information</h2>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter your email..."
+            />
+            <label for="phone">Phone</label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="Enter your phone..."
+            />
+          </form>
+        </div>
+        <div class="shipping__form">
+          <form action="">
+            <h2>Shipping address</h2>
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name..."
+            />
+            <label for="address">Address</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              placeholder="Enter your address..."
+            />
+            <label for="city">City</label>
+            <input
+              type="text"
+              name="city"
+              id="city"
+              placeholder="Enter your city..."
+            />
+            <div class="country-post">
+              <div class="container__country">
+                <label for="country">Country</label>
+                <select name="country" id="country">
+                  <option value="select">Select</option>
+                  <option value="turkiye">Turkey</option>
+                  <option value="usa">USA</option>
+                  <option value="canada">Canada</option>
+                </select>
+              </div>
+              <div class="container__post-code">
+                <label for="post-code">Post Code</label>
+                <input
+                  type="text"
+                  name="post-code"
+                  id="post-code"
+                  placeholder="Enter your postral code..."
+                />
+              </div>
+            </div>
+            <div class="check">
+              <input type="checkbox" name="repeat" id="repeat" value="yes" />
+              <label for="repeat">See this information next time</label>
+            </div>
+            <div class="button">
+              <button type="submit">Continue</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="right">
+        <div class="container__right">
+          <div class="product1 product">
+            <div class="container__right--product1-image">
+              <img src="img/photo1.png" alt="" />
+            </div>
+            <div class="container__right--product1-price">
+              <div class="product1__price-top">
+                <h3>Vintage Backbag</h3>
+                <p>
+                  <span style="color: #f2994a">$54.99</span>
+                  <span
+                    ><del><small>$94.99</small> </del></span
+                  >
+                </p>
+              </div>
+              <div class="product1__price-bottom">
+                <button>-</button>
+                <p>1</p>
+                <button>+</button>
+              </div>
+            </div>
+          </div>
+          <div class="product2 product">
+            <div class="container__right--product2-image">
+              <img src="img/photo2.png" alt="" />
+            </div>
+            <div class="container__right--product2-price">
+              <div class="product2__price-top">
+                <h3>Levi Shoes</h3>
+                <p>
+                  <span style="color: #f2994a">$74.99</span>
+                  <span
+                    ><del><small>$124.99</small> </del></span
+                  >
+                </p>
+              </div>
+              <div class="product2__price-bottom">
+                <button>-</button>
+                <p>1</p>
+                <button>+</button>
+              </div>
+            </div>
+          </div>
+          <div class="product2"></div>
+          <div class="total">
+            <hr />
+            <p class="shipping-total"><span>Shipping</span><span>$19</span></p>
+            <hr />
+            <p class="shipping-total"><span>Total</span><span>$148.98</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
