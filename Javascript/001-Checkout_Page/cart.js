@@ -3,38 +3,18 @@
 //* Variables
 const cart = document.querySelector(".cart");
 
-const product1 = document.querySelector(".product1");
-const product2 = document.querySelector(".product2");
-const product3 = document.querySelector(".product3");
-
-const product1Price = document.querySelector(".product1-price");
-const product2Price = document.querySelector(".product2-price");
-const product3Price = document.querySelector(".product3-price");
-
-const product1Decrement = document.querySelector(".product1-decrement");
-const product2Decrement = document.querySelector(".product2-decrement");
-const product3Decrement = document.querySelector(".product3-decrement");
-
-const product1Amount = document.querySelector(".product1-amount");
-const product2Amount = document.querySelector(".product2-amount");
-const product3Amount = document.querySelector(".product3-amount");
-
-const product1Increment = document.querySelector(".product1-increment");
-const product2Increment = document.querySelector(".product2-increment");
-const product3Increment = document.querySelector(".product3-increment");
-
-const product1Remove = document.querySelector(".product1-remove");
-const product2Remove = document.querySelector(".product2-remove");
-const product3Remove = document.querySelector(".product3-remove");
-
-const product1TotalPrice = document.querySelector(".product1-total-price");
-const product2TotalPrice = document.querySelector(".product2-total-price");
-const product3TotalPrice = document.querySelector(".product3-total-price");
-
 const subtotal = document.querySelector(".subtotal-price");
 const tax = document.querySelector(".tax-price");
 const shipping = document.querySelector(".shipping-price");
 const total = document.querySelector(".total-price");
+
+const addTotalInıt = function (productTotalPrice) {
+  subtotal.textContent = (+subtotal.textContent + +productTotalPrice).toFixed(
+    2
+  );
+  tax.textContent = (+tax.textContent + +productTotalPrice * 0.18).toFixed(2);
+  total.textContent = (+subtotal.textContent + +tax.textContent).toFixed(2);
+};
 
 const allProduct = Object.keys(localStorage);
 allProduct.splice(allProduct.indexOf("counter"), 1);
@@ -102,22 +82,8 @@ allProduct.forEach((key) => {
 </div>
 `;
   cart.append(newDiv);
+  addTotalInıt(arr[5]);
 });
-
-const removeItem = function (productAmount, productTotalPrice, productPrice) {
-  productAmount.textContent = +productAmount.textContent - 1;
-  productTotalPrice.textContent = (
-    +productTotalPrice.textContent - +productPrice.textContent
-  ).toFixed(2);
-  subtotal.textContent = (
-    +subtotal.textContent - +productPrice.textContent
-  ).toFixed(2);
-  tax.textContent = (
-    +tax.textContent -
-    +productPrice.textContent * 0.18
-  ).toFixed(2);
-  total.textContent = (+subtotal.textContent + +tax.textContent).toFixed(2);
-};
 
 const addItem = function (productAmount, productTotalPrice, productPrice) {
   productAmount.textContent = +productAmount.textContent + 1;
@@ -129,6 +95,20 @@ const addItem = function (productAmount, productTotalPrice, productPrice) {
   ).toFixed(2);
   tax.textContent = (
     +tax.textContent +
+    +productPrice.textContent * 0.18
+  ).toFixed(2);
+  total.textContent = (+subtotal.textContent + +tax.textContent).toFixed(2);
+};
+const removeItem = function (productAmount, productTotalPrice, productPrice) {
+  productAmount.textContent = +productAmount.textContent - 1;
+  productTotalPrice.textContent = (
+    +productTotalPrice.textContent - +productPrice.textContent
+  ).toFixed(2);
+  subtotal.textContent = (
+    +subtotal.textContent - +productPrice.textContent
+  ).toFixed(2);
+  tax.textContent = (
+    +tax.textContent -
     +productPrice.textContent * 0.18
   ).toFixed(2);
   total.textContent = (+subtotal.textContent + +tax.textContent).toFixed(2);
@@ -166,54 +146,28 @@ const removeCart = function (product, productTotalPrice) {
 };
 
 const temp = document.querySelectorAll("section");
-let l = temp.length;
-let s = 1;
 
-temp.forEach((product) => {
-  let x = s <= l ? l++ : s;
-  product.addEventListener("click", (e) => {
-    if (e.target.closest("section").classList.contains(`product${x}`)) {
-      console.log("cli");
-    }
-  });
-});
+let x = 0;
+cart.addEventListener("click", (e) => {
+  for (let i = 1; i <= temp.length; i++) {
+    const p = e.target.closest("section");
+    const productAmount = p.querySelector(".product-amount");
+    const productPrice = p.querySelector(".product-price");
+    const productTotalPrice = p.querySelector(".product-total-price");
 
-product1.addEventListener("click", (e) => {
-  if (e.target.classList.contains("product1-decrement")) {
-    if (product1Amount.textContent != 0) {
-      removeItem(product1Amount, product1TotalPrice, product1Price);
-      addShipping();
+    if (e.target.closest("section").classList.contains(`product${i}`)) {
+      if (e.target === p.querySelector(".product-decrement")) {
+        console.log("clicked", `product${i}`);
+        if (productAmount.textContent != 0) {
+          removeItem(productAmount, productTotalPrice, productPrice);
+          addShipping();
+        }
+      } else if (e.target === p.querySelector(".product-increment")) {
+        addItem(productAmount, productTotalPrice, productPrice);
+        addShipping();
+      } else if (e.target === p.querySelector(".product-remove")) {
+        removeCart(p, productTotalPrice);
+      }
     }
-  } else if (e.target.classList.contains("product1-increment")) {
-    addItem(product1Amount, product1TotalPrice, product1Price);
-    addShipping();
-  } else if (e.target.classList.contains("product1-remove")) {
-    removeCart(product1, product1TotalPrice);
-  }
-});
-product2.addEventListener("click", (e) => {
-  if (e.target.classList.contains("product2-decrement")) {
-    if (product2Amount.textContent != 0) {
-      removeItem(product2Amount, product2TotalPrice, product2Price);
-      addShipping();
-    }
-  } else if (e.target.classList.contains("product2-increment")) {
-    addItem(product2Amount, product2TotalPrice, product2Price);
-    addShipping();
-  } else if (e.target.classList.contains("product2-remove")) {
-    removeCart(product2, product2TotalPrice);
-  }
-});
-product3.addEventListener("click", (e) => {
-  if (e.target.classList.contains("product3-decrement")) {
-    if (product3Amount.textContent != 0) {
-      removeItem(product3Amount, product3TotalPrice, product3Price);
-      addShipping();
-    }
-  } else if (e.target.classList.contains("product3-increment")) {
-    addItem(product3Amount, product3TotalPrice, product3Price);
-    addShipping();
-  } else if (e.target.classList.contains("product3-remove")) {
-    removeCart(product3, product3TotalPrice);
   }
 });
