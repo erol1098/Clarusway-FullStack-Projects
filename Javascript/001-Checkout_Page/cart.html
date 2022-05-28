@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shopping Cart</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container">
+        <a class="navbar-brand text-primary fw-bold" href="#">Damping.com</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./cart.html">Cart</a>
+            </li>
+          </ul>
+
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="container bg-dark bg-gradient bg-opacity-25 pb-5 cart"
+      style="min-width: 532px"
+    >
+      <h1 class="display-4 text-primary fw-bold text-center py-3">
+        Shopping Cart
+      </h1>
+      <section class="row justify-content-center product1">
+        <div class="card my-3 p-3 col-8">
+          <div class="row g-0 flex-sm-column flex-md-row">
+            <div class="col-12 col-md-4 d-flex justify-content-center">
+              <img
+                src="./IMG/photo1.png"
+                class="img-fluid rounded-3 m-sm-4 m-md-0"
+                alt="vintage-backbag"
+              />
+            </div>
+            <div class="col-12 col-md-8">
+              <div class="card-body">
+                <h5 class="card-title text-center text-md-start product1-name">
+                  Vintage Backbag
+                </h5>
+                <p class="card-title text-center text-md-start">
+                  <b>$</b><strong class="product1-price">25.98</strong>
+                  <small><del>$34.99</del></small>
+                </p>
+                <div class="row">
+                  <div class="btn-group me-2 col-6 offset-2 offset-md-0">
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-2 product1-decrement"
+                    >
+                      -
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary disabled bg-body text-black border-0 product1-amount"
+                    >
+                      0
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-2 product1-increment"
+                    >
+                      +
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger ms-4 rounded-2 product1-remove"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                  <div class="row">
+                    <p class="card-text text-center text-md-start mt-4">
+                      Product Total: <b>$</b
+                      ><strong class="product1-total-price">0</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="row justify-content-center product2">
+        <div class="card my-3 p-3 col-8">
+          <div class="row g-0 flex-sm-column flex-md-row">
+            <div class="col-12 col-md-4 d-flex justify-content-center">
+              <img
+                src="./IMG/photo2.png"
+                class="img-fluid rounded-3 m-sm-4 m-md-0"
+                alt="levi-shoes"
+              />
+            </div>
+            <div class="col-12 col-md-8">
+              <div class="card-body">
+                <h5 class="card-title text-center text-md-start product2-name">
+                  Levi Shoes
+                </h5>
+                <p class="card-title text-center text-md-start">
+                  <b>$</b><strong class="product2-price">45.99</strong>
+                  <small><del>$54.99</del></small>
+                </p>
+                <div class="row">
+                  <div
+                    class="btn-group me-2 col-6 offset-2 offset-md-0"
+                    role="group"
+                    aria-label="Second group"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-2 product2-decrement"
+                    >
+                      -
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary disabled bg-body text-black border-0 product2-amount"
+                    >
+                      0
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-2 product2-increment"
+                    >
+                      +
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger ms-4 rounded-2 product2-remove"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                  <div class="row">
+                    <p class="card-text text-center text-md-start mt-4">
+                      Product Total: <b>$</b
+                      ><strong class="product2-total-price">0</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="row justify-content-center product3">
+        <div class="card my-3 p-3 col-8">
+          <div class="row g-0 flex-sm-column flex-md-row">
+            <div class="col-12 col-md-4 d-flex justify-content-center">
+              <img
+                src="./IMG/photo3.jpg"
+                class="img-fluid rounded-3 m-sm-4 m-md-0"
+                alt="antique-clock"
+              />
+            </div>
+            <div class="col-12 col-md-8">
+              <div class="card-body">
+                <h5 class="card-title text-center text-md-start product3-name">
+                  Antique Clock
+                </h5>
+                <p class="card-title text-center text-md-start">
+                  <b>$</b><strong class="product3-price">74.99</strong>
+                  <small><del>$94.99</del></small>
+                </p>
+                <div class="row">
+                  <div
+                    class="btn-group me-2 col-6 offset-2 offset-md-0"
+                    role="group"
+                    aria-label="Second group"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-2 product3-decrement"
+                    >
+                      -
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary disabled bg-body text-black border-0 product3-amount"
+                    >
+                      0
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-2 product3-increment"
+                    >
+                      +
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger ms-4 rounded-2 product3-remove"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                  <div class="row">
+                    <p class="card-text text-center text-md-start mt-4">
+                      Product Total: <b>$</b
+                      ><strong class="product3-total-price">0</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="container"></div>
+      <div class="row flex-column col-12 col-md-8 mx-md-auto text-dark border">
+        <div class="subtotal d-flex justify-content-between mt-2">
+          <div>Subtotal</div>
+
+          <div><b>$</b><strong class="subtotal-price">0.00</strong></div>
+        </div>
+        <div
+          class="tax d-flex justify-content-between mt-2 pt-2 border border-0 border-top border-secondary"
+        >
+          <div>Tax (%18)</div>
+          <div><b>$</b><strong class="tax-price">0.00</strong></div>
+        </div>
+        <div
+          class="shipping d-flex justify-content-between mt-2 pt-2 border border-0 border-top border-secondary"
+        >
+          <div>Shipping</div>
+          <div><b>$</b><strong class="shipping-price">0.00</strong></div>
+        </div>
+        <div
+          class="total d-flex justify-content-between mt-2 py-2 border border-0 border-top border-secondary"
+        >
+          <div>Total</div>
+          <div><b>$</b><strong class="total-price">0.00</strong></div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./cart.js"></script>
+  </body>
+</html>

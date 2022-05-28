@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container">
+        <a class="navbar-brand text-primary fw-bold" href="#">Damping.com</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cart.html">Cart</a>
+            </li>
+          </ul>
+
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="product11">
+          <div class="card my-3 p-3 col-12" style="max-width: 990px">
+            <div class="row g-0 flex-sm-column flex-md-row">
+              <div class="col-12 col-md-4 d-flex justify-content-center">
+                <img
+                  src="./IMG/photo1.png"
+                  class="img-fluid rounded-3 m-sm-4 m-md-0 product11-URL"
+                  alt="vintage-backbag"
+                />
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="card-body">
+                  <h5
+                    class="card-title text-center text-md-start product11-name"
+                  >
+                    Vintage Backbag
+                  </h5>
+                  <p class="card-title text-center text-md-start">
+                    <b>$</b><strong class="product11-price">25.98</strong>
+                    <small><del class="product11-oldprice">34.99</del></small>
+                  </p>
+                  <div class="row">
+                    <div class="btn-group me-2 col-6 offset-3 offset-md-0">
+                      <button
+                        type="button"
+                        class="btn btn-secondary rounded-2 product11-decrement"
+                      >
+                        -
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-secondary disabled bg-body text-black border-0 product11-amount"
+                      >
+                        0
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-secondary rounded-2 product11-increment"
+                      >
+                        +
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-success ms-4 rounded-2 product11-add"
+                      >
+                        Add
+                      </button>
+                    </div>
+                    <div class="row">
+                      <p class="card-text text-center text-md-start mt-4">
+                        Product1 Total: <b>$</b
+                        ><strong class="product11-total-price">0</strong>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card my-3 p-3 col-12 product12" style="max-width: 990px">
+          <div class="row g-0 flex-sm-column flex-md-row">
+            <div class="col-12 col-md-4 d-flex justify-content-center">
+              <img
+                src="./IMG/photo2.png"
+                class="img-fluid rounded-3 m-sm-4 m-md-0 product12-URL"
+                alt="levi-shoes"
+              />
+            </div>
+            <div class="col-12 col-md-8">
+              <div class="card-body">
+                <h5 class="card-title text-center text-md-start product12-name">
+                  Levi Shoes
+                </h5>
+                <p class="card-title text-center text-md-start">
+                  <b>$</b><strong class="product12-price">45.99</strong>
+                  <small><del class="product12-oldprice">54.99</del></small>
+                </p>
+                <div class="row">
+                  <div
+                    class="btn-group me-2 col-6 offset-3 offset-md-0"
+                    role="group"
+                    aria-label="Second group"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-2 product12-decrement"
+                    >
+                      -
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary disabled bg-body text-black border-0 product12-amount"
+                    >
+                      0
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-2 product12-increment"
+                    >
+                      +
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success ms-4 rounded-2 product12-add"
+                    >
+                      Add
+                    </button>
+                  </div>
+                  <div class="row">
+                    <p class="card-text text-center text-md-start mt-4">
+                      Product1 Total: <b>$</b
+                      ><strong class="product12-total-price">0</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card my-3 p-3 col-12 product13" style="max-width: 990px">
+          <div class="row g-0 flex-sm-column flex-md-row">
+            <div class="col-12 col-md-4 d-flex justify-content-center">
+              <img
+                src="./IMG/photo3.jpg"
+                class="img-fluid rounded-3 m-sm-4 m-md-0 product13-URL"
+                alt="antique-clock"
+              />
+            </div>
+            <div class="col-12 col-md-8">
+              <div class="card-body">
+                <h5 class="card-title text-center text-md-start product13-name">
+                  Antique Clock
+                </h5>
+                <p class="card-title text-center text-md-start">
+                  <b>$</b><strong class="product13-price">74.99</strong>
+                  <small><del class="product13-oldprice">94.99</del></small>
+                </p>
+                <div class="row">
+                  <div
+                    class="btn-group me-2 col-6 offset-3 offset-md-0"
+                    role="group"
+                    aria-label="Second group"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-2 product13-decrement"
+                    >
+                      -
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary disabled bg-body text-black border-0 product13-amount"
+                    >
+                      0
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-2 product13-increment"
+                    >
+                      +
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success ms-4 rounded-2 product13-add"
+                    >
+                      Add
+                    </button>
+                  </div>
+                  <div class="row">
+                    <p class="card-text text-center text-md-start mt-4">
+                      Product1 Total: <b>$</b
+                      ><strong class="product13-total-price">0</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card my-3 p-3 col-12" style="max-width: 990px">
+          <div class="row g-0 flex-sm-column flex-md-row">
+            <div class="col-12 col-md-4 d-flex justify-content-center">
+              <img
+                src="./IMG/photo3.jpg"
+                class="img-fluid rounded-3 m-sm-4 m-md-0"
+                alt="antique-clock"
+              />
+            </div>
+            <div class="col-12 col-md-8">
+              <div class="card-body">
+                <h5 class="card-title text-center text-md-start product13-name">
+                  Antique Clock
+                </h5>
+                <p class="card-title text-center text-md-start">
+                  <b>$</b><strong class="product13-price">74.99</strong>
+                  <small><del>$94.99</del></small>
+                </p>
+                <div class="row">
+                  <div
+                    class="btn-group me-2 col-6 offset-3 offset-md-0"
+                    role="group"
+                    aria-label="Second group"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-2 product13-decrement"
+                    >
+                      -
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary disabled bg-body text-black border-0 product13-amount"
+                    >
+                      0
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary rounded-2 product13-increment"
+                    >
+                      +
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success ms-4 rounded-2 product13-add"
+                    >
+                      Add
+                    </button>
+                  </div>
+                  <div class="row">
+                    <p class="card-text text-center text-md-start mt-4">
+                      Product1 Total: <b>$</b
+                      ><strong class="product13-total-price">0</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
