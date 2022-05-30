@@ -17,18 +17,51 @@ const productTotalPrice = document.querySelector(".product-total-price");
 
 //* Product Content
 
-// ? const productContent = [productURL, productName, productPrice, productOldprice, productAmount, productTotalPrice]
+// ? const productContent = [productURL, productName, productPrice, productOldprice, productAmount, productTotalPrice, id]
 
-const product1 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
-const product2 = ["./IMG/photo2.png", "Levi Shoes", 25.98, 34.99, 0, 0];
-const product3 = ["./IMG/photo3.jpg", "Antique Clock", 25.98, 34.99, 0, 0];
-const product4 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
-const product5 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
-const product6 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
-const product7 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
-const product8 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
-const product9 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
-const product10 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
+const product1 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0, 100];
+const product2 = ["./IMG/photo2.png", "Levi Shoes", 45.99, 54.99, 0, 0, 200];
+const product3 = ["./IMG/photo3.jpg", "Antique Clock", 74.99, 94.99, 0, 0, 300];
+
+const product4 = [
+  "./IMG/sunglasses.jpg",
+  "Ray-Ban Wayfarer Sunglasses",
+  53.99,
+  75.99,
+  0,
+  0,
+  400,
+];
+const product5 = [
+  "./IMG/gameboy.jpg",
+  "Nintendo GameBoy",
+  20.99,
+  39.99,
+  0,
+  0,
+  500,
+];
+const product6 = ["./IMG/lens.jpg", "Camera Lens", 119.99, 129.99, 0, 0, 600];
+const product7 = [
+  "./IMG/longboard.jpg",
+  "Long Board",
+  99.99,
+  119.99,
+  0,
+  0,
+  700,
+];
+const product8 = ["./IMG/lemon.jpg", "Lemon", 0.99, 1.99, 0, 0, 800];
+const product9 = [
+  "./IMG/waterbottle.jpg",
+  "Water Bottle",
+  14.99,
+  19.99,
+  0,
+  0,
+  900,
+];
+
 let productID = 0;
 const addCarts = function (product) {
   const contentHTML = `
@@ -74,6 +107,7 @@ const addCarts = function (product) {
               </button>
               <button
                 type="button"
+                id="liveToastBtn"
                 class="btn btn-success ms-4 rounded-2 product-add"
               >
                 Add
@@ -94,6 +128,7 @@ const addCarts = function (product) {
 
   const newProduct = document.createElement("section");
   newProduct.classList.add(`product${++productID}`);
+  newProduct.setAttribute("data-id", product[6]);
   newProduct.innerHTML = contentHTML;
   container.append(newProduct);
 };
@@ -101,6 +136,12 @@ const addCarts = function (product) {
 addCarts(product1);
 addCarts(product2);
 addCarts(product3);
+addCarts(product4);
+addCarts(product5);
+addCarts(product6);
+addCarts(product7);
+addCarts(product8);
+addCarts(product9);
 
 let counter;
 const removeItemMain = function (
@@ -128,16 +169,35 @@ const addCart = function (
   productPrice,
   productOldPrice,
   productAmount,
-  productTotalPrice
+  productTotalPrice,
+  id
 ) {
-  localStorage.setItem(`product${++counter}`, [
-    productName.textContent,
-    productURL.src,
-    productPrice.textContent,
-    productOldPrice.textContent,
-    productAmount.textContent,
-    productTotalPrice.textContent,
-  ]);
+  const allProduct = Object.keys(localStorage);
+  allProduct.splice(allProduct.indexOf("counter"), 1);
+  let isTrue = false;
+  allProduct.forEach((key) => {
+    const product = localStorage.getItem(key).split(",");
+
+    if (id === product[6]) {
+      product[4] = +product[4] + +productAmount.textContent;
+      product[5] = (+product[5] + +productTotalPrice.textContent).toFixed(2);
+      console.log(product);
+      localStorage.setItem(key, product);
+      isTrue = true;
+    }
+  });
+
+  !isTrue
+    ? localStorage.setItem(`product${++counter}`, [
+        productName.textContent,
+        productURL.src,
+        productPrice.textContent,
+        productOldPrice.textContent,
+        productAmount.textContent,
+        productTotalPrice.textContent,
+        id,
+      ])
+    : null;
 
   localStorage.setItem("counter", counter);
 };
@@ -153,7 +213,7 @@ container.addEventListener("click", (e) => {
     const productURL = p.querySelector(".product-URL");
     const productName = p.querySelector(".product-name");
     const productOldprice = p.querySelector(".product-oldprice");
-
+    p;
     if (e.target.closest("section").classList.contains(`product${i}`)) {
       if (e.target === p.querySelector(".product-decrement")) {
         if (productAmount.textContent > 0) {
@@ -162,72 +222,28 @@ container.addEventListener("click", (e) => {
       } else if (e.target === p.querySelector(".product-increment")) {
         addItemMain(productAmount, productTotalPrice, productPrice);
       } else if (e.target === p.querySelector(".product-add")) {
-        productAmount.textContent > 0 &&
+        if (productAmount.textContent > 0) {
           addCart(
             productName,
             productURL,
             productPrice,
             productOldprice,
             productAmount,
-            productTotalPrice
+            productTotalPrice,
+            p.dataset.id
           );
+        }
+
         productAmount.textContent = productTotalPrice.textContent = 0;
       }
     }
+
+    //* Show toast message
+    const toastTrigger = p.querySelector("#liveToastBtn");
+    const liveToast = document.getElementById("liveToast");
+    toastTrigger.addEventListener("click", () => {
+      const toast = new bootstrap.Toast(liveToast);
+      productAmount.textContent > 0 && toast.show();
+    });
   }
 });
-
-// product11.addEventListener("click", (e) => {
-//   if (e.target.classList.contains("product11-decrement")) {
-//     if (product11Amount.textContent != 0) {
-//       removeItemMain(product11Amount, product11TotalPrice, product11Price);
-//     }
-//   } else if (e.target.classList.contains("product11-increment")) {
-//     addItemMain(product11Amount, product11TotalPrice, product11Price);
-//   } else if (e.target.classList.contains("product11-add")) {
-//     addCart(
-//       product11Name,
-//       product11URL,
-//       product11Price,
-//       product11OldPrice,
-//       product11Amount,
-//       product11TotalPrice
-//     );
-//   }
-// });
-// product12.addEventListener("click", (e) => {
-//   if (e.target.classList.contains("product12-decrement")) {
-//     if (product12Amount.textContent != 0) {
-//       removeItemMain(product12Amount, product12TotalPrice, product12Price);
-//     }
-//   } else if (e.target.classList.contains("product12-increment")) {
-//     addItemMain(product12Amount, product12TotalPrice, product12Price);
-//   } else if (e.target.classList.contains("product12-add")) {
-//     addCart(
-//       product12Name,
-//       product12URL,
-//       product12Price,
-//       product12OldPrice,
-//       product12Amount,
-//       product12TotalPrice
-//     );
-//   }
-// });
-// product13.addEventListener("click", (e) => {
-//   if (e.target.classList.contains("product13-decrement")) {
-//     if (product13Amount.textContent != 0) {
-//       removeItemMain(product13Amount, product13TotalPrice, product13Price);
-//     }
-//   } else if (e.target.classList.contains("product13-increment")) {
-//     addItemMain(product13Amount, product13TotalPrice, product13Price);
-//   } else if (e.target.classList.contains("product13-add")) {
-//     addCart(
-//       product13Name,
-//       product13URL,
-//       product13Price,
-//       product13OldPrice,
-//       product13Amount,
-//       product13TotalPrice
-//     );
-//   }
-// });

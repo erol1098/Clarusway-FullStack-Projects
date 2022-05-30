@@ -20,7 +20,6 @@ const addTotalInıt = function (productTotalPrice) {
 
 const allProduct = Object.keys(localStorage);
 allProduct.splice(allProduct.indexOf("counter"), 1);
-console.log(allProduct);
 allProduct.forEach((key) => {
   const product = localStorage.getItem(key);
   const arr = product.split(",");
@@ -148,28 +147,37 @@ const removeCart = function (product, productTotalPrice) {
   product.innerHTML = "";
 };
 
+let productLS;
+let counter = localStorage.getItem("counter");
+const deleteItem = function (product) {
+  localStorage.removeItem(product);
+  localStorage.setItem("counter", localStorage.getItem("counter") - 1);
+};
+
 const temp = document.querySelectorAll("section");
 cart.addEventListener("click", (e) => {
-  for (let i = 1; i <= temp.length; i++) {
+  for (let i = 1; i <= counter; i++) {
     const p = e.target.closest("section");
     const productAmount = p.querySelector(".product-amount");
     const productPrice = p.querySelector(".product-price");
     const productTotalPrice = p.querySelector(".product-total-price");
-
+    productLS = `product${i}`;
     if (e.target.closest("section").classList.contains(`product${i}`)) {
       if (e.target === p.querySelector(".product-decrement")) {
         if (productAmount.textContent > 1) {
           removeItem(productAmount, productTotalPrice, productPrice);
           addShipping();
-        } else removeCart(p, productTotalPrice);
+        } else {
+          removeCart(p, productTotalPrice);
+          deleteItem(productLS);
+        }
       } else if (e.target === p.querySelector(".product-increment")) {
         addItem(productAmount, productTotalPrice, productPrice);
         addShipping();
       } else if (e.target === p.querySelector(".product-remove")) {
         removeCart(p, productTotalPrice);
 
-        // localStorage.removeItem(`product${i}`);
-        // localStorage.setItem("counter", localStorage.getItem("counter") - 1);
+        deleteItem(productLS);
       }
     }
   }
