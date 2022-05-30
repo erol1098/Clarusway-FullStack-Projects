@@ -8,6 +8,8 @@ const tax = document.querySelector(".tax-price");
 const shipping = document.querySelector(".shipping-price");
 const total = document.querySelector(".total-price");
 
+const emptyCart = document.querySelector(".empty");
+
 const addTotalInıt = function (productTotalPrice) {
   subtotal.textContent = (+subtotal.textContent + +productTotalPrice).toFixed(
     2
@@ -18,6 +20,7 @@ const addTotalInıt = function (productTotalPrice) {
 
 const allProduct = Object.keys(localStorage);
 allProduct.splice(allProduct.indexOf("counter"), 1);
+console.log(allProduct);
 allProduct.forEach((key) => {
   const product = localStorage.getItem(key);
   const arr = product.split(",");
@@ -146,8 +149,6 @@ const removeCart = function (product, productTotalPrice) {
 };
 
 const temp = document.querySelectorAll("section");
-
-let x = 0;
 cart.addEventListener("click", (e) => {
   for (let i = 1; i <= temp.length; i++) {
     const p = e.target.closest("section");
@@ -157,16 +158,18 @@ cart.addEventListener("click", (e) => {
 
     if (e.target.closest("section").classList.contains(`product${i}`)) {
       if (e.target === p.querySelector(".product-decrement")) {
-        console.log("clicked", `product${i}`);
-        if (productAmount.textContent != 0) {
+        if (productAmount.textContent > 1) {
           removeItem(productAmount, productTotalPrice, productPrice);
           addShipping();
-        }
+        } else removeCart(p, productTotalPrice);
       } else if (e.target === p.querySelector(".product-increment")) {
         addItem(productAmount, productTotalPrice, productPrice);
         addShipping();
       } else if (e.target === p.querySelector(".product-remove")) {
         removeCart(p, productTotalPrice);
+
+        // localStorage.removeItem(`product${i}`);
+        // localStorage.setItem("counter", localStorage.getItem("counter") - 1);
       }
     }
   }

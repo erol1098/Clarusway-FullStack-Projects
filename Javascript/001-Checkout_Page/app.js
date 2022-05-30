@@ -2,45 +2,105 @@
 
 //* Variables
 
-const product11 = document.querySelector(".product11");
-const product12 = document.querySelector(".product12");
-const product13 = document.querySelector(".product13");
+const container = document.querySelector(".container .row");
 
-const product11Name = document.querySelector(".product11-name");
-const product12Name = document.querySelector(".product12-name");
-const product13Name = document.querySelector(".product13-name");
+const product = document.querySelector(".product");
+const productURL = document.querySelector(".product-URL");
+const productName = document.querySelector(".product-name");
+const productPrice = document.querySelector(".product-price");
+const productOldprice = document.querySelector(".product-oldprice");
+const btnDecrement = document.querySelector(".product-decrement");
+const productAmount = document.querySelector(".product-amount");
+const btnIncrement = document.querySelector(".product-increment");
+const btnAdd = document.querySelector(".product-add");
+const productTotalPrice = document.querySelector(".product-total-price");
 
-const product11URL = document.querySelector(".product11-URL").src;
-const product12URL = document.querySelector(".product12-URL").src;
-const product13URL = document.querySelector(".product13-URL").src;
+//* Product Content
 
-const product11Price = document.querySelector(".product11-price");
-const product12Price = document.querySelector(".product12-price");
-const product13Price = document.querySelector(".product13-price");
+// ? const productContent = [productURL, productName, productPrice, productOldprice, productAmount, productTotalPrice]
 
-const product11OldPrice = document.querySelector(".product11-oldprice");
-const product12OldPrice = document.querySelector(".product12-oldprice");
-const product13OldPrice = document.querySelector(".product13-oldprice");
+const product1 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
+const product2 = ["./IMG/photo2.png", "Levi Shoes", 25.98, 34.99, 0, 0];
+const product3 = ["./IMG/photo3.jpg", "Antique Clock", 25.98, 34.99, 0, 0];
+const product4 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
+const product5 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
+const product6 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
+const product7 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
+const product8 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
+const product9 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
+const product10 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0];
+let productID = 0;
+const addCarts = function (product) {
+  const contentHTML = `
+  <div class="card my-3 p-3 col-12" style="max-width: 990px">
+    <div class="row g-0 flex-sm-column flex-md-row">
+      <div class="col-12 col-md-4 d-flex justify-content-center">
+        <img
+          src= ${product[0]}
+          class="img-fluid rounded-3 m-sm-4 m-md-0 product-URL"
+          alt=""
+        />
+      </div>
+      <div class="col-12 col-md-8">
+        <div class="card-body">
+          <h5
+            class="card-title text-center text-md-start product-name"
+          >
+            ${product[1]}
+          </h5>
+          <p class="card-title text-center text-md-start">
+            <b>$</b><strong class="product-price">${product[2]}</strong>
+            <small><del class="product-oldprice">${product[3]}</del></small>
+          </p>
+          <div class="row">
+            <div class="btn-group me-2 col-6 offset-3 offset-md-0">
+              <button
+                type="button"
+                class="btn btn-secondary rounded-2 product-decrement"
+              >
+                -
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary disabled bg-body text-black border-0 product-amount"
+              >
+              ${product[4]}
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary rounded-2 product-increment"
+              >
+                +
+              </button>
+              <button
+                type="button"
+                class="btn btn-success ms-4 rounded-2 product-add"
+              >
+                Add
+              </button>
+            </div>
+            <div class="row">
+              <p class="card-text text-center text-md-start mt-4">
+                Product1 Total: <b>$</b
+                ><strong class="product-total-price">${product[5]}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  `;
 
-const product11Decrement = document.querySelector(".product11-decrement");
-const produc1t2Decrement = document.querySelector(".product12-decrement");
-const produc1t3Decrement = document.querySelector(".product13-decrement");
+  const newProduct = document.createElement("section");
+  newProduct.classList.add(`product${++productID}`);
+  newProduct.innerHTML = contentHTML;
+  container.append(newProduct);
+};
 
-const product11Amount = document.querySelector(".product11-amount");
-const product12Amount = document.querySelector(".product12-amount");
-const product13Amount = document.querySelector(".product13-amount");
-
-const product11Increment = document.querySelector(".product11-increment");
-const product12Increment = document.querySelector(".product12-increment");
-const product13Increment = document.querySelector(".product13-increment");
-
-const product11Add = document.querySelector(".product11-add");
-const product12Add = document.querySelector(".product12-add");
-const product13Add = document.querySelector(".product13-add");
-
-const product11TotalPrice = document.querySelector(".product11-total-price");
-const product12TotalPrice = document.querySelector(".product12-total-price");
-const product13TotalPrice = document.querySelector(".product13-total-price");
+addCarts(product1);
+addCarts(product2);
+addCarts(product3);
 
 let counter;
 const removeItemMain = function (
@@ -72,7 +132,7 @@ const addCart = function (
 ) {
   localStorage.setItem(`product${++counter}`, [
     productName.textContent,
-    productURL,
+    productURL.src,
     productPrice.textContent,
     productOldPrice.textContent,
     productAmount.textContent,
@@ -81,57 +141,93 @@ const addCart = function (
 
   localStorage.setItem("counter", counter);
 };
-product11.addEventListener("click", (e) => {
-  if (e.target.classList.contains("product11-decrement")) {
-    if (product11Amount.textContent != 0) {
-      removeItemMain(product11Amount, product11TotalPrice, product11Price);
+
+const temp = document.querySelectorAll("section");
+
+container.addEventListener("click", (e) => {
+  for (let i = 1; i <= temp.length; i++) {
+    const p = e.target.closest("section");
+    const productAmount = p.querySelector(".product-amount");
+    const productPrice = p.querySelector(".product-price");
+    const productTotalPrice = p.querySelector(".product-total-price");
+    const productURL = p.querySelector(".product-URL");
+    const productName = p.querySelector(".product-name");
+    const productOldprice = p.querySelector(".product-oldprice");
+
+    if (e.target.closest("section").classList.contains(`product${i}`)) {
+      if (e.target === p.querySelector(".product-decrement")) {
+        if (productAmount.textContent > 0) {
+          removeItemMain(productAmount, productTotalPrice, productPrice);
+        } else removeCart(p, productTotalPrice);
+      } else if (e.target === p.querySelector(".product-increment")) {
+        addItemMain(productAmount, productTotalPrice, productPrice);
+      } else if (e.target === p.querySelector(".product-add")) {
+        productAmount.textContent > 0 &&
+          addCart(
+            productName,
+            productURL,
+            productPrice,
+            productOldprice,
+            productAmount,
+            productTotalPrice
+          );
+        productAmount.textContent = productTotalPrice.textContent = 0;
+      }
     }
-  } else if (e.target.classList.contains("product11-increment")) {
-    addItemMain(product11Amount, product11TotalPrice, product11Price);
-  } else if (e.target.classList.contains("product11-add")) {
-    addCart(
-      product11Name,
-      product11URL,
-      product11Price,
-      product11OldPrice,
-      product11Amount,
-      product11TotalPrice
-    );
   }
 });
-product12.addEventListener("click", (e) => {
-  if (e.target.classList.contains("product12-decrement")) {
-    if (product12Amount.textContent != 0) {
-      removeItemMain(product12Amount, product12TotalPrice, product12Price);
-    }
-  } else if (e.target.classList.contains("product12-increment")) {
-    addItemMain(product12Amount, product12TotalPrice, product12Price);
-  } else if (e.target.classList.contains("product12-add")) {
-    addCart(
-      product12Name,
-      product12URL,
-      product12Price,
-      product12OldPrice,
-      product12Amount,
-      product12TotalPrice
-    );
-  }
-});
-product13.addEventListener("click", (e) => {
-  if (e.target.classList.contains("product13-decrement")) {
-    if (product13Amount.textContent != 0) {
-      removeItemMain(product13Amount, product13TotalPrice, product13Price);
-    }
-  } else if (e.target.classList.contains("product13-increment")) {
-    addItemMain(product13Amount, product13TotalPrice, product13Price);
-  } else if (e.target.classList.contains("product13-add")) {
-    addCart(
-      product13Name,
-      product13URL,
-      product13Price,
-      product13OldPrice,
-      product13Amount,
-      product13TotalPrice
-    );
-  }
-});
+
+// product11.addEventListener("click", (e) => {
+//   if (e.target.classList.contains("product11-decrement")) {
+//     if (product11Amount.textContent != 0) {
+//       removeItemMain(product11Amount, product11TotalPrice, product11Price);
+//     }
+//   } else if (e.target.classList.contains("product11-increment")) {
+//     addItemMain(product11Amount, product11TotalPrice, product11Price);
+//   } else if (e.target.classList.contains("product11-add")) {
+//     addCart(
+//       product11Name,
+//       product11URL,
+//       product11Price,
+//       product11OldPrice,
+//       product11Amount,
+//       product11TotalPrice
+//     );
+//   }
+// });
+// product12.addEventListener("click", (e) => {
+//   if (e.target.classList.contains("product12-decrement")) {
+//     if (product12Amount.textContent != 0) {
+//       removeItemMain(product12Amount, product12TotalPrice, product12Price);
+//     }
+//   } else if (e.target.classList.contains("product12-increment")) {
+//     addItemMain(product12Amount, product12TotalPrice, product12Price);
+//   } else if (e.target.classList.contains("product12-add")) {
+//     addCart(
+//       product12Name,
+//       product12URL,
+//       product12Price,
+//       product12OldPrice,
+//       product12Amount,
+//       product12TotalPrice
+//     );
+//   }
+// });
+// product13.addEventListener("click", (e) => {
+//   if (e.target.classList.contains("product13-decrement")) {
+//     if (product13Amount.textContent != 0) {
+//       removeItemMain(product13Amount, product13TotalPrice, product13Price);
+//     }
+//   } else if (e.target.classList.contains("product13-increment")) {
+//     addItemMain(product13Amount, product13TotalPrice, product13Price);
+//   } else if (e.target.classList.contains("product13-add")) {
+//     addCart(
+//       product13Name,
+//       product13URL,
+//       product13Price,
+//       product13OldPrice,
+//       product13Amount,
+//       product13TotalPrice
+//     );
+//   }
+// });
