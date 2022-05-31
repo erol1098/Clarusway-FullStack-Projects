@@ -8,7 +8,18 @@ const tax = document.querySelector(".tax-price");
 const shipping = document.querySelector(".shipping-price");
 const total = document.querySelector(".total-price");
 
+const buyBtn = document.querySelector(".buy");
 const emptyCart = document.querySelector(".empty");
+
+const emptyControl = function () {
+  if (Object.keys(localStorage).length > 1) {
+    emptyCart.classList.add("d-none");
+    buyBtn.classList.remove("disabled");
+  } else {
+    emptyCart.classList.remove("d-none");
+    buyBtn.classList.add("disabled");
+  }
+};
 
 const addTotalInıt = function (productTotalPrice) {
   subtotal.textContent = (+subtotal.textContent + +productTotalPrice).toFixed(
@@ -16,6 +27,11 @@ const addTotalInıt = function (productTotalPrice) {
   );
   tax.textContent = (+tax.textContent + +productTotalPrice * 0.18).toFixed(2);
   total.textContent = (+subtotal.textContent + +tax.textContent).toFixed(2);
+
+  if (total.textContent < 100) {
+    shipping.textContent = 10;
+    total.textContent = (+total.textContent + 10).toFixed(2);
+  }
 };
 
 const allProduct = Object.keys(localStorage);
@@ -26,13 +42,13 @@ allProduct.forEach((key) => {
   const newDiv = document.createElement("section");
   newDiv.classList.add(`${key}`, "row", "justify-content-center");
 
-  newDiv.innerHTML = `<div class="card my-3 p-3 col-8">
+  newDiv.innerHTML = `<div class="card my-3 p-3 col-10">
   <div class="row g-0 flex-sm-column flex-md-row">
     <div class="col-12 col-md-4 d-flex justify-content-center">
       <img
         src="${arr[1]}"
         class="img-fluid rounded-3 m-sm-4 m-md-0"
-        alt="vintage-backbag"
+        alt=""
       />
     </div>
     <div class="col-12 col-md-8">
@@ -44,8 +60,8 @@ allProduct.forEach((key) => {
           <b>$</b><strong class="product-price">${arr[2]}</strong>
           <small><del class="product-oldprice">$${arr[3]}</del></small>
         </p>
-        <div class="row">
-          <div class="btn-group me-2 col-6 offset-2 offset-md-0">
+        <div class="row justify-content-center justify-content-md-start mt-3">
+          <div class="btn-group col-6 col-md-12 d-flex justify-content-center d-md-block">
             <button
               type="button"
               class="btn btn-secondary rounded-2 product-decrement"
@@ -85,6 +101,7 @@ allProduct.forEach((key) => {
 `;
   cart.append(newDiv);
   addTotalInıt(arr[5]);
+  emptyControl();
 });
 
 const addItem = function (productAmount, productTotalPrice, productPrice) {
@@ -170,14 +187,15 @@ cart.addEventListener("click", (e) => {
         } else {
           removeCart(p, productTotalPrice);
           deleteItem(productLS);
+          emptyControl();
         }
       } else if (e.target === p.querySelector(".product-increment")) {
         addItem(productAmount, productTotalPrice, productPrice);
         addShipping();
       } else if (e.target === p.querySelector(".product-remove")) {
         removeCart(p, productTotalPrice);
-
         deleteItem(productLS);
+        emptyControl();
       }
     }
   }

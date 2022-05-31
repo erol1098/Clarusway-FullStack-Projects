@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Damping.com | Shopping Cart</title>
+    <link rel="shortcut icon" href="./IMG/logo.svg" type="image/x-icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,8 +14,9 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container">
-        <a class="navbar-brand text-primary fw-bold" href="#">Damping.com</a>
+      <div class="container py-2">
+        <a class="navbar-brand text-primary fw-bold" href="./index.html"
+        ><img src="./IMG/logo.svg" alt="logo" class="text-primary" /> Damping.com</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -56,14 +58,13 @@
       </div>
     </nav>
     <div
-      class="container bg-primary bg-gradient bg-opacity-25 pb-5 cart"
-      style="min-width: 532px"
-    >
-      <h1 class="display-4 text-primary fw-bold text-center py-3">
+      class="container bg-primary bg-gradient bg-opacity-25 pb-5 d-flex flex-column align-items-center cart"
+      >
+      <h1 class="display-4 text-primary fw-bold py-3">
         Shopping Cart
       </h1>
-    <div class="row empty justify-content-center mt-5">
-      <div class="card col-8">
+    <div class="row empty mt-5 col-10 col-lg-12">
+      <div class="card pb-3">
         <div class="card-body text-center lead">
           <p class="card-text display-6 my-5">
             Your Cart Is Empty!
@@ -74,8 +75,8 @@
     </div>
       <!-- Products goes here -->
     </div>
-    <div class="container"></div>
-      <div class="row flex-column col-12 col-md-8 mx-md-auto text-dark border">
+    <div class="container pt-3 py-5">
+      <div class="row flex-column col-12 mx-auto col-md-8 mx-md-auto fw-bold text-dark shadow">
         <div class="subtotal d-flex justify-content-between mt-2">
           <div>Subtotal</div>
 
@@ -100,6 +101,10 @@
           <div><b>$</b><strong class="total-price">0.00</strong></div>
         </div>
       </div>
+    </div>
+    <div class="row col-10 offset-1 col-md-8 offset-md-2 justify-content-center mb-4">
+      <button class="buy btn btn-success  py-3 fw-bold disabled">BUY</button>
+    </div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

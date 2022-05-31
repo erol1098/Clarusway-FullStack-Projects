@@ -19,9 +19,33 @@ const productTotalPrice = document.querySelector(".product-total-price");
 
 // ? const productContent = [productURL, productName, productPrice, productOldprice, productAmount, productTotalPrice, id]
 
-const product1 = ["./IMG/photo1.png", "Vintage Bag", 25.98, 34.99, 0, 0, 100];
-const product2 = ["./IMG/photo2.png", "Levi Shoes", 45.99, 54.99, 0, 0, 200];
-const product3 = ["./IMG/photo3.jpg", "Antique Clock", 74.99, 94.99, 0, 0, 300];
+const product1 = [
+  "./IMG//leatherhandbag.jpg",
+  "Leather Hand Bag",
+  229.99,
+  259.99,
+  0,
+  0,
+  100,
+];
+const product2 = [
+  "./IMG/nikesneakers.jpg",
+  "Nike Sneakers",
+  45.99,
+  54.99,
+  0,
+  0,
+  200,
+];
+const product3 = [
+  "./IMG/pocketwatch.jpg",
+  "Antique Pocket Watch",
+  74.99,
+  94.99,
+  0,
+  0,
+  300,
+];
 
 const product4 = [
   "./IMG/sunglasses.jpg",
@@ -81,12 +105,12 @@ const addCarts = function (product) {
           >
             ${product[1]}
           </h5>
-          <p class="card-title text-center text-md-start">
+          <p class="card-title text-center text-md-start mt-3">
             <b>$</b><strong class="product-price">${product[2]}</strong>
             <small><del class="product-oldprice">${product[3]}</del></small>
           </p>
-          <div class="row">
-            <div class="btn-group me-2 col-6 offset-3 offset-md-0">
+          <div class="row justify-content-center justify-content-md-start mt-3">
+            <div class="btn-group col-6 d-flex justify-content-center d-md-block">
               <button
                 type="button"
                 class="btn btn-secondary rounded-2 product-decrement"
@@ -115,7 +139,7 @@ const addCarts = function (product) {
             </div>
             <div class="row">
               <p class="card-text text-center text-md-start mt-4">
-                Product1 Total: <b>$</b
+                Product Total: <b>$</b
                 ><strong class="product-total-price">${product[5]}</strong>
               </p>
             </div>
