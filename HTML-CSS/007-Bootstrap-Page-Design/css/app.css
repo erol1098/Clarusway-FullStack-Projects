@@ -1,0 +1,96 @@
+:root {
+  --red: #dc3545;
+}
+
+/*! ---------------------- 1- NAVBAR ----------------------------- */
+
+.navbar-custom {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: rgb(59, 59, 59);
+  font-weight: bold;
+}
+.navbar-custom a {
+  transition: color 1s;
+}
+.navbar-custom a:hover {
+  color: var(--red);
+}
+
+/*! ---------------------- 2- CAROUSEL ----------------------------- */
+.carousel-indicators-custom button {
+  background-color: var(--red) !important;
+  height: 0.4rem !important;
+  width: 3rem !important;
+}
+.carousel-custom {
+  max-height: calc(100vh - 88px);
+}
+.carousel-custom h1 {
+  color: #dc3545;
+  font-weight: bold;
+  text-shadow: 1px 1px #dc3545;
+}
+.carousel-custom .carousel-caption {
+  margin-bottom: 10vh;
+}
+.carousel-custom p {
+  color: white;
+  text-shadow: 1px 1px #fff;
+  font-weight: 500;
+}
+.carousel-custom button {
+  width: 7rem;
+  margin-bottom: 1rem;
+}
+/*! ------------------- 3- ABOUT SECTION ------------------------ */
+
+/*! ------------------- 4- INSTRUCTORS ------------------------ */
+section#instructors .socials i {
+  transition: opacity 1s;
+}
+
+section#instructors .socials i:hover {
+  opacity: 0.5;
+}
+section#instructors .card {
+  transition: transform 1s;
+}
+
+section#instructors .card:hover {
+  transform: scale(1.05);
+}
+/*! ------------------- 4- STUDENTS SECTION ------------------------ */
+
+/*! ------------------- 5- COURSES SECTION ------------------------ */
+#courses button.active {
+  background-color: var(--red);
+}
+#courses button {
+  color: #fff;
+}
+/*! ------------------- 6- CONTACT SECTION ------------------------ */
+#contact i {
+  color: var(--red);
+  font-size: 2rem;
+}
+/** ------------------- UP-BUTTON --------------------- */
+.up-btn i {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+/*! -------------------- 7- FOOTER ------------------------ */
+footer i {
+  font-size: 2rem;
+  color: white;
+  margin-right: 1rem;
+  transition: color 1s;
+}
+
+footer i:hover {
+  color: var(--red);
+}
