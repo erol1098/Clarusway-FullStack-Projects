@@ -1,0 +1,43 @@
+@import "../../scss/variables";
+.card {
+  background-color: $cardNavBgColor;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  box-shadow: 0.25rem 0.25rem 0.3rem rgba(0, 0, 0, 0.7);
+  position: relative;
+  overflow: hidden;
+
+  .title {
+    color: $backgroundColor;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  img {
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+    transition: filter 1s;
+    &:hover {
+      filter: grayscale(100%);
+    }
+  }
+  .desc {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    z-index: 1;
+    transition: transform 0.7s ease-in-out;
+  }
+  &:hover {
+    .desc {
+      transform: translateY(0%);
+    }
+  }
+}
