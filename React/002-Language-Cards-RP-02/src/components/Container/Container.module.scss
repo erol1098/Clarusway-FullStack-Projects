@@ -1,0 +1,20 @@
+.box {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 1.5rem;
+  background-color: #ffab48;
+  width: 25rem;
+  margin: auto;
+
+  .container {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  h1 {
+    padding: 0.5rem 0;
+    text-align: center;
+    color: #fff;
+  }
+}
