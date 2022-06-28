@@ -7,6 +7,7 @@ const Container = () => {
   return (
     <div className={styles.box}>
       <h1>Languages</h1>
+      <div className={styles.stripe}></div>
       <div className={styles.container}>
         {languages.map((language) => {
           const { name, img, options } = language;
